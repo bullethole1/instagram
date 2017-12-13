@@ -69,11 +69,20 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Instagram
+                    Tweets
                 </div>
-                @foreach($images as $image)
-                    <img src="{{$image->url}}">
-                @endforeach
+                <table>
+                    <tr>
+                        <th>Skapad</th>
+                        <th>Tweet</th>
+                    </tr>
+                    @foreach($tweets as $tweet)
+                        <tr>
+                            <td>{{ $tweet->created_at }}</td>
+                            <td>{{ $tweet->text }}</td>
+                        </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </body>

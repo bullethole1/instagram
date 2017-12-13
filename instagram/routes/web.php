@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/gallery', 'InstagramController@showImages');
+
+Route::get('/tweets', 'TweetController@showTweets');
+
+Route::get('/count', 'TweetController@callTweetCount');
+
+Route::get('/exclude', 'TweetController@exclude');
+
+Route::get('/tweetForm', 'TweetController@tweetForm');

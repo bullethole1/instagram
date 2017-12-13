@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Image extends Model
 {
-
     protected $fillable = [
         'id',
-        'full_name',
-        'profile_picture',
-        'username',
-        'username',
+        'text',
+        'created_time',
+        'width',
+        'height',
+        'url',
         'created_at',
         'updated_at'
     ];
@@ -22,8 +22,8 @@ class User extends Model
         return $this->belongsTo(Post::class);
     }
 
-    public function image()
+    public function user()
     {
-        return $this->hasMany(Image::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -21,16 +21,6 @@
                 margin: 0;
             }
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
             .position-ref {
                 position: relative;
             }
@@ -71,9 +61,24 @@
                 <div class="title m-b-md">
                     Instagram
                 </div>
-                @foreach($images as $image)
-                    <img src="{{$image->url}}">
-                @endforeach
+                <form action="{{ action('TweetController@tweetForm') }}" method="get">
+                    {{ csrf_field() }}
+                    Search:
+                    <input type="text" name="search" value="" placeholder="Search..."><br>
+                    <input type="submit">
+                </form>
+                <table>
+                    <tr>
+                        <th>Words</th>
+                        <th>count</th>
+                    </tr>
+                    @foreach($tweets as $tweet=>$value)
+                        <tr>
+                            <td>{{$tweet}}</td>
+                            <td>{{$value}}</td>
+                        </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </body>
